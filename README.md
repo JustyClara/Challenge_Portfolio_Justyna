@@ -9,35 +9,3 @@ I passed ISTQB certificate a while ago and I am looking for a new job as a teste
 
 👀 Privately I’m interested in music, dancing, sewing, cooking and eating yummy foods.
 
-
-# Zadanie 2: Selektory
-
-### Element 1: Title "Scounts panel"
-- Xpath 1: _//h5[starts-with(@class, "MuiTypography-root")]_
-- Xpath 2: _//*[contains(@class, "MuiTypography-h5")]_
-- Xpath 3: _//*[text()='Scouts Panel']_
-
-### Element 2: Login Field
-- Xpath 1: _//*[contains(@id, "login")]_
-- Xpath 2: _//*[contains(@for, "login")]_
-- Xpath 3: _//*[text()='Login']_
-
-### Element 3: Password Field
-- Xpath 1: _//*[contains(@id, "password-label")]_
-- Xpath 2: _//*[contains(@for, "password")]_
-- Xpath 3: _//*[text()='Password']_
-
-### Element 4: "Remind password" button
-- Xpath 1: _//a[starts-with(@class,"MuiTypography-root")]_
-- Xpath 2: _//*[contains(@class, "MuiTypography-root MuiLink")]_ 
-- Xpath 3: _//*[text()='Remind password']_
-
-### Element 5: "Sign In" button
-- Xpath 1: _//button[starts-with(@class,"MuiButtonBase-root")]_
-- Xpath 2: _//*[contains(@type, "submit")]_
-- Xpath 3: _//button[starts-with(@class,"MuiButtonBase-root MuiButton-root")]_
-
-### Element 6: Language Selection
-- Xpath 1: _//div[starts-with(@class,"MuiSelect-root")]_
-- Xpath 2: _//*[contains(@role, "button")]_
-- Xpath 3: _//*[text()='English']_
