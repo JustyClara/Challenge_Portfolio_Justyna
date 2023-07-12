@@ -1,3 +1,5 @@
+import time
+
 from pages.base_page import BasePage
 
 
@@ -12,6 +14,7 @@ class Dashboard(BasePage):
     futbol_kolektyw_image_xpath = "//div[starts-with(@class,'MuiCardMedia-root jss130')]"
     shortcuts_xpath = "//*[text()='Shortcuts']"
     sign_out_xpath = "//*[text()='Sign out']"
+    add_player_xpath = "//*[@id='__next']/div[1]/main/div[3]/div[2]/div/div/a/button/span[1]"
 
     email_field_xpath = "//input[starts-with(@aria-invalid,'false')]"
     height_field_xpath = "//*[contains(@name, 'height')]"
@@ -23,6 +26,19 @@ class Dashboard(BasePage):
     leg_field_xpath = "//*[contains(@id, 'mui-component-select-leg')]"
     achievements_field_xpath = "//*[contains(@name, 'achievements')]"
     laczy_nad_pilka_xpath = "//*[contains(@name, 'webLaczy')]"
+
+
+    expected_title = "Scouts panel"
+    dashboard_url = 'https://scouts-test.futbolkolektyw.pl/en'
+
+    def title_of_page(self):
+        time.sleep(5)
+        assert self.get_page_title(self.dashboard_url) == self.expected_title
+
+    def click_add_player(self):
+        time.sleep(5)
+        assert self.click_on_the_element(self.add_player_xpath)
+
     pass
 
 
