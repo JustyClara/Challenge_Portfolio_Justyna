@@ -27,12 +27,14 @@ class Dashboard(BasePage):
     achievements_field_xpath = "//*[contains(@name, 'achievements')]"
     laczy_nad_pilka_xpath = "//*[contains(@name, 'webLaczy')]"
 
+    medium_page_start_reading_button_xpath = "//*[text()='Start reading']"
+
 
     expected_title = "Scouts panel"
     dashboard_url = 'https://scouts-test.futbolkolektyw.pl/en'
 
     def title_of_page(self):
-        time.sleep(5)
+        self.wait_for_element_to_be_clickable(self.sign_out_xpath)
         assert self.get_page_title(self.dashboard_url) == self.expected_title
 
     def click_add_player(self):
