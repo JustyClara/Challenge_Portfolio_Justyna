@@ -23,13 +23,13 @@ class TestLoginPage(unittest.TestCase):
 
     def test_log_in_to_the_system(self):
         user_login = LoginPage(self.driver)
-        time.sleep(5)
+        time.sleep(3)
         user_login.title_of_page()
         user_login.check_page_title()
         user_login.type_in_email('user01@getnada.com')
         user_login.type_in_password('Test-1234')
         user_login.click_on_the_sign_in_button()
-        time.sleep(15)
+        time.sleep(3)
         dashboard_page = Dashboard(self.driver)
         dashboard_page.title_of_page()
         time.sleep(5)
