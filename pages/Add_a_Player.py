@@ -11,6 +11,7 @@ from utils.settings import DRIVER_PATH, IMPLICITLY_WAIT
 
 
 class TestAddaPlayer(unittest.TestCase):
+
     add_player_xpath = "//*[@id='__next']/div[1]/main/div[3]/div[2]/div/div/a/button/span[1]"
     add_player_from_url = "https://scouts-test.futbolkolektyw.pl/en/players/add"
 
@@ -23,7 +24,7 @@ class TestAddaPlayer(unittest.TestCase):
         self.driver.fullscreen_window()
         self.driver.implicitly_wait(IMPLICITLY_WAIT)
 
-    def test_add_player(self, AddaPlayer=None):
+    def test_add_player(self, AddaPlayer):
         user_login = LoginPage(self.driver)
         user_login.title_of_page()
         user_login.type_in_email('user01@getnada.com')

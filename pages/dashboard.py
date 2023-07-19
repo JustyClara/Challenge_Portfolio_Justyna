@@ -1,9 +1,14 @@
 import time
 
+from selenium.webdriver.common.by import By
+
 from pages.base_page import BasePage
 
 
 class Dashboard(BasePage):
+    main_page_button_xpath = '//ul[1]/div[1]/div[2]/span'
+    sign_out_xpath = '//ul[2]/div[2]/div/span'
+    scouts_panel_logo_background_image_xpath = "//*[@title='Logo Scouts Panel']"
     title_scouts_panel_xpath = "//*[text()='Scouts Panel']"
     players_count_xpath = "//*[text()='Players count']"
     main_page_xpath = "//*[text()='Main page']"
@@ -13,7 +18,7 @@ class Dashboard(BasePage):
     last_updated_report_xpath = "//*[text()='Last updated report']"
     futbol_kolektyw_image_xpath = "//div[starts-with(@class,'MuiCardMedia-root jss130')]"
     shortcuts_xpath = "//*[text()='Shortcuts']"
-    sign_out_xpath = "//*[text()='Sign out']"
+    sign_out_xpath = '//*[@id="__next"]/div[1]/div/div/div/ul[2]/div[2]/div[1]'
     add_player_xpath = "//*[@id='__next']/div[1]/main/div[3]/div[2]/div/div/a/button/span[1]"
 
     email_field_xpath = "//input[starts-with(@aria-invalid,'false')]"
@@ -26,15 +31,14 @@ class Dashboard(BasePage):
     leg_field_xpath = "//*[contains(@id, 'mui-component-select-leg')]"
     achievements_field_xpath = "//*[contains(@name, 'achievements')]"
     laczy_nad_pilka_xpath = "//*[contains(@name, 'webLaczy')]"
-
     medium_page_start_reading_button_xpath = "//*[text()='Start reading']"
 
-
-    expected_title = "Scouts panel"
-    dashboard_url = 'https://scouts-test.futbolkolektyw.pl/en'
+    expected_title = "Scouts Panel"
+    dashboard_url = 'https://scouts-test.futbolkolektyw.pl/'
 
     def title_of_page(self):
-        self.wait_for_element_to_be_clickable(self.sign_out_xpath)
+        test_title = self.get_page_title(self.dashboard_url)
+        time.sleep(4)
         assert self.get_page_title(self.dashboard_url) == self.expected_title
 
     def click_add_player(self):
@@ -42,17 +46,3 @@ class Dashboard(BasePage):
         assert self.click_on_the_element(self.add_player_xpath)
 
     pass
-
-
-
-
-
-
-
-
-
-
-
-
-
-
