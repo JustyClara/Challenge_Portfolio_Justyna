@@ -12,7 +12,7 @@ class LoginPage(BasePage):
     title_scouts_panel_xpath = "//h5[starts-with(@class, 'MuiTypography-root')]"
     title_of_box_xpath = "//*[contains(@class, 'MuiTypography-root MuiTypography-h5')]"
     header_of_box = 'Scouts Panel'
-    add_player_xpath = "//*[@id='__next']/div[1]/main/div[3]/div[2]/div/div/a/button/span[1]"
+    add_a_player_button_xpath = "//*[@id='__next']/div[1]/main/div[3]/div[2]/div/div/a/button/span[1]"
 
     login_url = "https://scouts-test.futbolkolektyw.pl/en"
     expected_title = 'Scouts panel - sign in'
@@ -32,3 +32,4 @@ class LoginPage(BasePage):
 
     def check_page_title(self):
         self.assert_element_text(self.driver, self.title_of_box_xpath, self.header_of_box)
+

@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 
 
-class Dashboard(BasePage):
+class AddAPlayer(BasePage):
     main_page_button_xpath = '//ul[1]/div[1]/div[2]/span'
     sign_out_xpath = '//ul[2]/div[2]/div/span'
     scouts_panel_logo_background_image_xpath = "//*[@title='Logo Scouts Panel']"
@@ -32,21 +32,32 @@ class Dashboard(BasePage):
     achievements_field_xpath = "//*[contains(@name, 'achievements')]"
     laczy_nad_pilka_xpath = "//*[contains(@name, 'webLaczy')]"
     medium_page_start_reading_button_xpath = "//*[text()='Start reading']"
+    submit_button_xpath = '//*[@id="__next"]/div[1]/main/div[2]/form/div[3]/button[1]/span[1]'
 
     expected_title = "Scouts panel"
     dashboard_url = 'https://scouts-test.futbolkolektyw.pl/'
-
-    add_player_url = "https://scouts-test.futbolkolektyw.pl/en/players/add"
-    add_player_expected_title = "Add player"
 
     def title_of_page(self):
         self.wait_for_element_to_be_clickable(self.sign_out_xpath)
         assert self.get_page_title(self.dashboard_url) == self.expected_title
 
     def click_add_player_button(self):
-        self.click_on_the_element(self.add_a_player_button_xpath)
         time.sleep(5)
-        assert self.get_page_title(self.add_player_url) == self.add_player_expected_title
+        assert self.click_on_the_element(self.add_a_player_button_xpath)
 
+    def type_in_email(self, email):
+        self.field_send_keys(self.email_field_xpath, email)
+
+    def type_in_name(self, email):
+        self.field_send_keys(self.name_field_xpath, email)
+
+    def type_in_surname(self, email):
+        self.field_send_keys(self.surname_field_xpath, email)
+
+    def type_in_age(self, email):
+        self.field_send_keys(self.age_field_xpath, email)
+
+    def click_submit_button(self):
+        self.click_on_the_element(self.submit_button_xpath)
 
     pass
